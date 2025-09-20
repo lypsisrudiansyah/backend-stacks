@@ -1,6 +1,5 @@
 # Choose Go version + base OS
-# Default: Go 1.25 on Debian Bullseye (can be overridden in devcontainer.json)
-ARG VARIANT="1.25-bullseye"
+ARG VARIANT="1.23-bullseye"
 FROM mcr.microsoft.com/vscode/devcontainers/go:1-${VARIANT}
 
 # [Choice] Node.js version: none, lts/*, 20, 18, 16

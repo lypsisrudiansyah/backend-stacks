@@ -6,17 +6,15 @@
             // Set VARIANT to choose the Go version you want (e.g. 1, 1.18, 1.25, 1.24).
             //  Add -bullseye or -buster if you need to lock onto a specific Debian release.
             //  If you’re on Apple Silicon (arm64), the -bullseye variants are recommended.
-            "VARIANT": "1.25",
+            "VARIANT": "1.23",
             // Options
             "NODE_VERSION": "lts/*"
         }
     },
     "runArgs": [
-        "seccomp=unconfined",
         "--cap-add=SYS_PTRACE",
         "--security-opt",
-        "--env",
-        "DEBUG=true"
+        "seccomp=unconfined"
     ],
     "customizations": {
         "codespaces": {
@@ -46,5 +44,5 @@
     // Example: "postCreateCommand": "go version"
     // Remove the user property below if you want to attach as root. Docs: https://aka.ms/vscode-remote/containers/non-root
     "onCreateCommand": "printf 'source $HOME/.cargo/env\n' >> ~/.bashrc && printf 'PS1=\"$ \"\n' >> ~/.bashrc",
-    "remoteUser": "vscoderudi"
+    "remoteUser": "vscode"
 }
