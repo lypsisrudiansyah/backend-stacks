@@ -39,5 +39,12 @@
             "christian-kohler.npm-intellisense",
             "rust-lang.rust-analyzer"
         ]
-    }
+    },
+    // 'forwardPorts' lets you expose ports from inside the container to your host machine.
+    // Example: "forwardPorts": [8080, 3000]
+    // 'postCreateCommand' runs after the container is fully set up.
+    // Example: "postCreateCommand": "go version"
+    // Remove the user property below if you want to attach as root. Docs: https://aka.ms/vscode-remote/containers/non-root
+    "onCreateCommand": "printf 'source $HOME/.cargo/env\n' >> ~/.bashrc && printf 'PS1=\"$ \"\n' >> ~/.bashrc",
+    "remoteUser": "vscoderudi"
 }
