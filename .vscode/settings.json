@@ -1,0 +1,27 @@
+{
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.bracketPairColorization.enabled": true,
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#dfd471",
+        "activityBar.background": "#dfd471",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#239c90",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#15202b99",
+        "editorGroup.border": "#dfd471",
+        "sash.hoverBorder": "#dfd471",
+        "statusBar.background": "#d6c847",
+        "statusBar.debuggingBackground": "#4755d6",
+        "statusBar.debuggingForeground": "#e7e7e7",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#bfb12b",
+        "statusBarItem.remoteBackground": "#d6c847",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#d6c847",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#d6c84799",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+}
