@@ -23,6 +23,21 @@
             "openFiles": [
                 "README.md"
             ]
-        }
+        },
+        // * Set *default* container specific settings.json values on container create.
+        "settings": {
+            "terminal.integrated.shell.linux": "/bin/bash",
+            "go.toolsManagement.checkForUpdates": "local",
+            "go.useLanguageServer": true,
+            "go.gopath": "/go"
+        },
+        "extensions": [
+            "streetsidesoftware.code-spell-checker",
+            "fill-labs.dependi",
+            "golang.Go",
+            "golang.go",
+            "christian-kohler.npm-intellisense",
+            "rust-lang.rust-analyzer"
+        ]
     }
 }
