@@ -10,5 +10,19 @@
             // Options
             "NODE_VERSION": "lts/*"
         }
+    },
+    "runArgs": [
+        "seccomp=unconfined",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "--env",
+        "DEBUG=true"
+    ],
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "README.md"
+            ]
+        }
     }
 }
