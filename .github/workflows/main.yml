@@ -2,4 +2,13 @@ name: Copy To The Other Branches
 on: 
   workflow_dispatch:
 jobs:
-  copy-to-the-other-branches :
+  copy-to-the-other-branches:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Copy To The Other Branch Action
+        uses: planetoftheweb/copy-to-branches@v1.2
+        env:
+          key: main
