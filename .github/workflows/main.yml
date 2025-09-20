@@ -1,0 +1,5 @@
+name: Copy To The Other Branches
+on: 
+  workflow_dispatch:
+jobs:
+  copy-to-the-other-branches :
