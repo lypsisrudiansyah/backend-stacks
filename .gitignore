@@ -2,3 +2,5 @@
 .tmp
 npm-debug.log
 node_modules
+~/.git-credentials
+.git-credentials
