@@ -14,6 +14,7 @@ struct WeatherResponse {
     rain: Option<Rain>, // optional, because sometimes "rain" may not exist
     sys: Sys,
     name: String,
+    wind: Wind,
 }
 
 #[derive(Debug, Deserialize)]
@@ -37,6 +38,11 @@ struct Rain {
 #[derive(Debug, Deserialize)]
 struct Sys {
     country: Option<String>,
+}
+
+#[derive(Deserialize, Debug)]
+struct Wind {
+    speed: f64,
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -72,6 +78,17 @@ fn main() -> Result<(), Box<dyn Error>> {
         weather_data.main.temp - 273.15,
         (weather_data.main.temp - 273.15) * 9.0 / 5.0 + 32.0
     );
+
+    println!("Wind Speed: {:.2} m/s", weather_data.wind.speed);
+    if let Some(weather) = &weather_data.weather.get(0) {
+        println!("Weather Description: {}", weather.description);
+    }
+
+    if let Some(rain) = &weather_data.rain {
+        println!("Rain (last 1h): {:.2} mm", rain.one_hour);
+    } else {
+        println!("Rain (last 1h): None");
+    }
 
     println!("------------=====---------");
     println!(
