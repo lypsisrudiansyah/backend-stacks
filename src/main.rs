@@ -1,3 +1,4 @@
+use reqwest::blocking::Client;
 use std::env;
 use std::error::Error;
 
@@ -17,6 +18,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let lat: &String = &args[1];
     let long: &String = &args[1];
 
+    let client = Client::new();
     let url = format!(
         "https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}",
         lat, long, api_key
