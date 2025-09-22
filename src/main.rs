@@ -36,7 +36,7 @@ struct Rain {
 
 #[derive(Debug, Deserialize)]
 struct Sys {
-    country: String,
+    country: Option<String>,
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -57,15 +57,28 @@ fn main() -> Result<(), Box<dyn Error>> {
         lat, long, api_key
     );
 
-    let raw = client.get(&url).send()?.text()?;
-    println!("Raw response:\n{}", raw);
+    // let raw = client.get(&url).send()?.text()?;
+    // println!("Raw response:\n{}", raw);
 
     let weather_data: WeatherResponse = client.get(&url).send()?.json()?;
 
+    if let Some(country) = &weather_data.sys.country {
+        println!("Place: {}, Country {}", weather_data.name, country)
+    } else {
+        println!("Country not defined!")
+    };
+    println!(
+        "Temperature: {:.2}°C / {:.2}°F",
+        weather_data.main.temp - 273.15,
+        (weather_data.main.temp - 273.15) * 9.0 / 5.0 + 32.0
+    );
+
+    println!("------------=====---------");
     println!(
         "City: {}, Country: {}, Temp: {}°C, Weather: {}",
         weather_data.name,
-        weather_data.sys.country,
+        // weather_data.sys.country,
+        weather_data.sys.country.as_deref().unwrap_or("N/A"),
         weather_data.main.temp,
         weather_data
             .weather
@@ -75,6 +88,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     );
 
     print!("Debug! :: {} || {}", lat, long);
-    println!("Hello, world! Rust");
+    // println!("Hello, world! Rust");
     Ok(())
 }
