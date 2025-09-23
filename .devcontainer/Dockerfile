@@ -16,7 +16,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         curl \
         unzip \
     && rm -rf /var/lib/apt/lists/*
-
+USER vscode
 # Install Rust toolchain (cargo, rustc, etc.)
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup.sh \
     && chmod +x rustup.sh \
