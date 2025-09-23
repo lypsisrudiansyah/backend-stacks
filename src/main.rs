@@ -79,18 +79,18 @@ fn main() -> Result<(), Box<dyn Error>> {
         (weather_data.main.temp - 273.15) * 9.0 / 5.0 + 32.0
     );
 
-    println!("Wind Speed: {:.2} m/s", weather_data.wind.speed);
-    if let Some(weather) = &weather_data.weather.get(0) {
-        println!("Weather Description: {}", weather.description);
-    }
-
     if let Some(rain) = &weather_data.rain {
         println!("Rain (last 1h): {:.2} mm", rain.one_hour);
     } else {
         println!("Rain (last 1h): None");
     }
 
-    println!("------------=====---------");
+    println!("Wind Speed: {:.2} m/s", weather_data.wind.speed);
+    if let Some(weather) = &weather_data.weather.get(0) {
+        println!("Weather Description: {}", weather.description);
+    }
+
+    println!("------------=====-----------");
     println!(
         "City: {}, Country: {}, Temp: {}°C, Weather: {}",
         weather_data.name,
@@ -104,7 +104,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             .unwrap_or(&"N/A".to_string()),
     );
 
-    print!("Debug! :: {} || {}", lat, long);
+    println!("Debug! :: {} || {}", lat, long);
     // println!("Hello, world! Rust");
     Ok(())
 }
