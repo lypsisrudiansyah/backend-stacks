@@ -46,6 +46,10 @@ wss.on("connection", (ws) => {
     })
 });
 
-
+const port = 8080;
+theServer.listen(port, () => {
+    console.log(`HTTP server serving on http://localhost:${port}`)
+    console.log(`WebSocket server running on ws://localhost:${port}`)
+})
 
 
