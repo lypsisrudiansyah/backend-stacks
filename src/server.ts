@@ -31,11 +31,10 @@ const wss = new WebSocketServer({ server: theServer });
 
 wss.on("connection", (ws) => {
     console.log("Client connected!");
-
     ws.on("message", (message: Buffer) => {
         console.log("Received: ", message.toString())
 
-        ws.send(`Echo: ${message.toString()}`);
+        ws.send(`Echo ${message.toString()}`);
     })
 
     ws.on("close", () => {
