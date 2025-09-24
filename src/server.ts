@@ -27,7 +27,7 @@ const theServer = http.createServer((req, res) => {
     }
 });
 
-const wss = new WebSocketServer({ theServer });
+const wss = new WebSocketServer({ server: theServer });
 
 wss.on("connection", (ws) => {
     console.log("Client connected!");
