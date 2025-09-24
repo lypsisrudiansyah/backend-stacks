@@ -3,17 +3,21 @@
     "module": "index.ts",
     "type": "module",
     "devDependencies": {
-        "@types/bun": "latest"
+        "@types/bun": "latest",
+        "@types/ws": "^8.18.1"
     },
     "peerDependencies": {
         "typescript": "^5.8.3"
     },
     "scripts": {
         "start": "node index.ts",
-        "build": "tsc -p tsconfig.json",
-        "lint": "eslint ."
+        "buildOld": "tsc -p tsconfig.json",
+        "build": "tsc -p tsconfig.json && cp src/index.html dist/index.html",
+        "lint": "eslint .",
+        "serve": "bun dist/server.js"
     },
     "dependencies": {
-        "eslint": "^9.18.0"
+        "eslint": "^9.18.0",
+        "ws": "^8.18.3"
     }
 }
