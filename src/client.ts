@@ -8,3 +8,17 @@ socket.addEventListener("open", () => {
 socket.addEventListener("message", (event: MessageEvent) => {
     console.log("Message from server: ", event.data);
 })
+
+socket.addEventListener("close", () => {
+    console.log("Disconnected from WebSocket !")
+})
+
+socket.addEventListener("error", (event: Event) => {
+    console.error("websocket server error: ", event);
+})
+
+setInterval(() => {
+    if (socket.readyState === WebSocket.OPEN) {
+        socket.send("Ping from client!");
+    }
+}, 3500);
